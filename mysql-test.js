@@ -23,4 +23,25 @@ connection.query('call jiedian.jd_user_get_all();',function(err,rows,fields){
 	}
 	
 });	
+
+connection.query('call jiedian.jd_user_get_by_username(?);',['sunsai'],function(err,results,fields){
+	if(err)
+		throw err;
+	console.log('result.length=',results.length);
+	var users = results[0];
+	console.log('user.length=',users.length);
+	console.log(users[0]);
+
+
+});	
 connection.end();
+
+
+
+
+
+
+
+
+
+
