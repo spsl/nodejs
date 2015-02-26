@@ -10,14 +10,16 @@ connection.connect();
 
 var users = null;
 
-connection.query('select * from jd_user',function(err,rows,fields){
+connection.query('call jiedian.jd_user_get_all();',function(err,rows,fields){
 	if(err) throw err;
 	
-	console.log('herhj',rows[0].username);
+	console.log('herhj',rows[0][0].username);
+	console.log('length=',rows.length);
+	console.log(rows);
 	users = rows;
 	for(var i=0;i<users.length;i++){
-		console.log("username:",users[i].username);
-		console.log("password:",users[i].password);
+		console.log("username:",users[0][i].username);
+		console.log("password:",users[0][i].password);
 	}
 	
 });	
